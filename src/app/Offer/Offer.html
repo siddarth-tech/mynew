@@ -1,0 +1,41 @@
+<div class="container-fluid"> 
+<form [formGroup]="formGroup">
+<input type="hidden" formControlName="id">
+<div class="form-group">
+<label for="exampleInputEmail1">candidate</label>
+<select formControlName="candidate" class="form-control"  placeholder="Enter candidate">
+<option *ngFor="let op of Candidates">{{op.id}}</option></select></div>
+<div class="form-group">
+<label for="exampleInputEmail1">pos</label>
+<select formControlName="pos" class="form-control"  placeholder="Enter pos">
+<option *ngFor="let op of Positions">{{op.id}}</option></select></div>
+<div class="form-group">
+<label for="exampleInputEmail1">sal</label>
+<select formControlName="sal" class="form-control"  placeholder="Enter sal">
+<option *ngFor="let op of SalaryDetailss">{{op.id}}</option></select></div>
+ <button type="submit" class="btn btn-primary" (click)="save()">Submit</button> &nbsp;&nbsp;
+ <button type="submit" class="btn btn-primary" (click)="getAll()">GET ALL</button> &nbsp;&nbsp;
+ <button type="submit" class="btn btn-primary" (click)="clear()">CLEAR</button> &nbsp;&nbsp;
+ <button type="submit" class="btn btn-primary" (click)="delete()">DELETE</button> &nbsp;&nbsp;
+</form>
+<table class="table">
+<thead class="thead-dark">
+<tr>
+<th scope="col">#</th>
+<th scope="col">id</th>
+<th scope="col">candidate</th>
+<th scope="col">pos</th>
+<th scope="col">sal</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let s of elements; index as i"   (click)="getById(s.id)">
+<th scope="row">{{i}}</th>
+<td>{{s.id}}</td>
+<td>{{s.candidate}}</td>
+<td>{{s.pos}}</td>
+<td>{{s.sal}}</td>
+</tr>
+</tbody>
+</table>
+</div> 

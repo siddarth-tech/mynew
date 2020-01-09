@@ -1,0 +1,35 @@
+<div class="container-fluid"> 
+<form [formGroup]="formGroup">
+<input type="hidden" formControlName="id">
+<div class="form-group">
+<label for="exampleInputEmail1">basic</label>
+<input type="text" formControlName="basic" class="form-control"  placeholder="Enter basic">
+</div>
+<div class="form-group">
+<label for="exampleInputEmail1">hra</label>
+<input type="text" formControlName="hra" class="form-control"  placeholder="Enter hra">
+</div>
+ <button type="submit" class="btn btn-primary" (click)="save()">Submit</button> &nbsp;&nbsp;
+ <button type="submit" class="btn btn-primary" (click)="getAll()">GET ALL</button> &nbsp;&nbsp;
+ <button type="submit" class="btn btn-primary" (click)="clear()">CLEAR</button> &nbsp;&nbsp;
+ <button type="submit" class="btn btn-primary" (click)="delete()">DELETE</button> &nbsp;&nbsp;
+</form>
+<table class="table">
+<thead class="thead-dark">
+<tr>
+<th scope="col">#</th>
+<th scope="col">id</th>
+<th scope="col">basic</th>
+<th scope="col">hra</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let s of elements; index as i"   (click)="getById(s.id)">
+<th scope="row">{{i}}</th>
+<td>{{s.id}}</td>
+<td>{{s.basic}}</td>
+<td>{{s.hra}}</td>
+</tr>
+</tbody>
+</table>
+</div> 

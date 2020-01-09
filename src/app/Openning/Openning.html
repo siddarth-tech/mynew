@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <form [formGroup]="formGroup">
+        <input type="hidden" formControlName="id">
+        <div class="form-group">
+            <label for="exampleInputEmail1">position</label>
+            <select formControlName="position" class="form-control" placeholder="Enter position">
+                <option value={{op.id}} *ngFor="let op of Positions">{{op.name}}</option>
+            </select></div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">noofope</label>
+            <input type="text" formControlName="noofope" class="form-control" placeholder="Enter noofope">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">qual</label>
+            <select formControlName="qual" class="form-control" placeholder="Enter qual">
+                <option value="{{op.id}}" *ngFor="let op of Qualifications">{{op.name}}</option>
+            </select></div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">skillset</label>
+            <select formControlName="skillset" multiple class="form-control" placeholder="Enter skillset">
+                <option value="{{op.id}}" *ngFor="let op of Skills">{{op.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">exp</label>
+            <input type="text" formControlName="exp" class="form-control" placeholder="Enter exp">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="save()">Submit</button> &nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" (click)="getAll()">GET ALL</button> &nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" (click)="clear()">CLEAR</button> &nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" (click)="delete()">DELETE</button> &nbsp;&nbsp;
+    </form>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">id</th>
+                <th scope="col">position</th>
+                <th scope="col">noofope</th>
+                <th scope="col">qual</th>
+                <th scope="col">skillset</th>
+                <th scope="col">exp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of elements; index as i" (click)="getById(s.id)">
+                <th scope="row">{{i}}</th>
+                <td>{{s.id}}</td>
+                <td>{{s.position}}</td>
+                <td>{{s.noofope}}</td>
+                <td>{{s.qual}}</td>
+                <td>{{s.skillset}}</td>
+                <td>{{s.exp}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

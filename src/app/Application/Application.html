@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <form [formGroup]="formGroup">
+        <input type="hidden" formControlName="id">
+        <div class="form-group">
+            <label for="exampleInputEmail1">candidate</label>
+            <select formControlName="candidate" class="form-control" placeholder="Enter candidate">
+                <option value="{{op.id}}" *ngFor="let op of Candidates">{{op.name}}</option>
+            </select></div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">openning</label>
+            <select formControlName="openning" class="form-control" placeholder="Enter openning">
+                <option value="{{op.id}}" *ngFor="let op of Opennings">{{op.position.name}}</option>
+            </select></div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">time</label>
+            <input type="text" formControlName="time" class="form-control" placeholder="Enter time">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="save()">Submit</button> &nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" (click)="getAll()">GET ALL</button> &nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" (click)="clear()">CLEAR</button> &nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" (click)="delete()">DELETE</button> &nbsp;&nbsp;
+    </form>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">id</th>
+                <th scope="col">candidate</th>
+                <th scope="col">openning</th>
+                <th scope="col">time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of elements; index as i" (click)="getById(s.id)">
+                <th scope="row">{{i}}</th>
+                <td>{{s.id}}</td>
+                <td>{{s.candidate}}</td>
+                <td>{{s.openning}}</td>
+                <td>{{s.time}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
