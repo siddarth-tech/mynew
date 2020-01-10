@@ -14,17 +14,17 @@ export class CandidateService {
   constructor(private http:HttpClient) { }
 
   public save(data:Candidate){
-     return  this.http.post<Candidate>("http://localhost:8080/Candidate/save",data);
+     return  this.http.post<Candidate>("http://localhost:9090/Candidate/save",data);
   } 
 
   public getAll():Observable<Candidate[]>{
-     return this.http.get<Candidate[]>("http://localhost:8080/Candidate/all");
+     return this.http.get<Candidate[]>("http://localhost:9090/Candidate/all");
   }
 
   public getById(id):Observable<Candidate>{
-     return this.http.get<Candidate>("http://localhost:8080/Candidate/"+id);
+     return this.http.get<Candidate>("http://localhost:9090/Candidate/"+id);
   }
   public deleteById(id){
-    return this.http.delete("http://localhost:8080/Candidate/"+id);
+    return this.http.delete("http://localhost:9090/Candidate/"+id);
  }
 }

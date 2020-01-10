@@ -14,17 +14,17 @@ export class ApplicationService {
   constructor(private http:HttpClient) { }
 
   public save(data:Application){
-     return  this.http.post<Application>("http://localhost:8080/Application/save",data);
+     return  this.http.post<Application>("http://localhost:9090/Application/save",data);
   } 
 
   public getAll():Observable<Application[]>{
-     return this.http.get<Application[]>("http://localhost:8080/Application/all");
+     return this.http.get<Application[]>("http://localhost:9090/Application/all");
   }
 
   public getById(id):Observable<Application>{
-     return this.http.get<Application>("http://localhost:8080/Application/"+id);
+     return this.http.get<Application>("http://localhost:9090/Application/"+id);
   }
   public deleteById(id){
-    return this.http.delete("http://localhost:8080/Application/"+id);
+    return this.http.delete("http://localhost:9090/Application/"+id);
  }
 }
